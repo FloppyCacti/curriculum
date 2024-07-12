@@ -2,7 +2,7 @@
 
 Separate from the **module pattern** that we discussed in an earlier lesson, "modules" is a feature that arrived with ES6. ES6 modules are starting to appear in many code bases around the net and getting them up and running will give us a chance to explore some new parts of the JavaScript ecosystem, so it's going to be a worthy excursion!
 
-Don't be fooled! We're going to cover much more than just the new module syntax in this lesson! Before we can really *use* these modules, we're going to have to learn about **npm** and **webpack**, which are both topics that will be *very* useful to you even beyond this lesson. In the end, the modules themselves are simple to implement, so we're going to take this chance to learn about a few other things.
+Don't be fooled! We're going to cover much more than just the new module syntax in this lesson! Before we can really _use_ these modules, we're going to have to learn about **npm** and **webpack**, which are both topics that will be _very_ useful to you even beyond this lesson. In the end, the modules themselves are simple to implement, so we're going to take this chance to learn about a few other things.
 
 ### Lesson overview
 
@@ -40,7 +40,7 @@ Read through the npm links below but don't worry about running any of the comman
 
 ### Yarn?
 
-At some point, you will probably run into [Yarn](https://yarnpkg.com/en/) - a replacement for the default `npm`. For the most part, it does the same things, though it *does* have a few more features. Recent versions of `npm` have incorporated some of the best features of Yarn, so using it won't offer you any real advantages at this point in your career. It *is* a fine package manager, however, and may be worth your consideration in the future.
+At some point, you will probably run into [Yarn](https://yarnpkg.com/en/) - a replacement for the default `npm`. For the most part, it does the same things, though it _does_ have a few more features. Recent versions of `npm` have incorporated some of the best features of Yarn, so using it won't offer you any real advantages at this point in your career. It _is_ a fine package manager, however, and may be worth your consideration in the future.
 
 ### Webpack and bundlers
 
@@ -54,15 +54,15 @@ Enter bundlers. Give a bundler a starting file (an entry point) and it will buil
 
 Webpack is one such tool for bundling modules. There is a lot of talk across the net about how difficult and complex it is to set up and use, but at the moment our needs are few and the setup is basic enough. In fact, you can see an example of getting it up and running on the [front page of the Webpack website](https://webpack.js.org/).
 
-Webpack *is* a very powerful tool, and with that power comes a decent amount of complexity. Don't let it scare you off! The basic configuration is not difficult and proficiency with webpack looks *amazing* on resumes.
+Webpack _is_ a very powerful tool, and with that power comes a decent amount of complexity. Don't let it scare you off! The basic configuration is not difficult and proficiency with webpack looks _amazing_ on resumes.
 
 To get us started, we are going to refer to the official documentation.
 
 1. Code along with all of the steps of [Webpack's "Getting Started" tutorial](https://webpack.js.org/guides/getting-started/).
 
-Let's discuss what's going on there. After installing webpack using npm, we set up a project that required an external library ([Lodash](https://lodash.com/)) using a `<script>` tag. The site lists a few reasons why this is probably *not* ideal and then steps through using webpack to accomplish the same thing.
+Let's discuss what's going on there. After installing webpack using npm, we set up a project that required an external library ([Lodash](https://lodash.com/)) using a `<script>` tag. The site lists a few reasons why this is probably _not_ ideal and then steps through using webpack to accomplish the same thing.
 
-<span id="webpack-knowledge-check">Let us revisit two key words mentioned earlier - **entry** and **output**. In the above link's example, we rearranged the files into a `src` and `dist` folder. Technically, we could have called those folders anything, but those names are typical. `src` is our *source* directory. In other words, `src` is where we write all of the code that webpack is going to bundle up for us. When webpack runs, it goes through all of our files starting at any entry points we give it, looks for any `import` statements and then compiles *all* of the code we need to run our site into a single file per entry point inside of the `dist` folder (short for *distribution*). In this example, we have a single entry point - `/src/index.js`. The **output** file is the compiled version - `dist/main.js`.</span>
+<span id="webpack-knowledge-check">Let us revisit two key words mentioned earlier - **entry** and **output**. In the above link's example, we rearranged the files into a `src` and `dist` folder. Technically, we could have called those folders anything, but those names are typical. `src` is our _source_ directory. In other words, `src` is where we write all of the code that webpack is going to bundle up for us. When webpack runs, it goes through all of our files starting at any entry points we give it, looks for any `import` statements and then compiles _all_ of the code we need to run our site into a single file per entry point inside of the `dist` folder (short for _distribution_). In this example, we have a single **entry** point - `/src/index.js`. The **output** file is the compiled version - `dist/main.js`.</span>
 
 - Browse [Webpack's "Concepts" page](https://webpack.js.org/concepts/) for more details. We'll talk plugins and loaders in another lesson.
 
@@ -76,22 +76,22 @@ The import statement is the same thing that you used during the webpack tutorial
 
 ```javascript
 // a file called functionOne.js
-const functionOne = () => console.log('FUNCTION ONE!');
+const functionOne = () => console.log("FUNCTION ONE!");
 
 export { functionOne };
 ```
 
 ```javascript
 // another JS file
-// Note: You can only use single quotes (') or double quotes (") for import statements 
-import { functionOne } from './functionOne';
+// Note: You can only use single quotes (') or double quotes (") for import statements
+import { functionOne } from "./functionOne";
 
 functionOne(); // this should work as expected!
 ```
 
-<span id="module-knowledge-check">There are *many* benefits to writing your code in modules. One of the most compelling is code reuse. If, for instance, you have written some functions that manipulate the DOM in a specific way, putting all of those into their own file as a 'module' means that you can copy that file and reuse it very easily!</span>
+<span id="module-knowledge-check">There are _many_ benefits to writing your code in modules. One of the most compelling is code reuse. If, for instance, you have written some functions that manipulate the DOM in a specific way, putting all of those into their own file as a 'module' means that you can copy that file and reuse it very easily!</span>
 
-There are also the same benefits as when using factory functions or the module pattern (the module pattern and ES6 modules are not the same things; this naming convention is frustrating). With the introduction of ES6 Modules, the module pattern (IIFEs) is not needed anymore, though you might still encounter them in the wild. When using ES6 modules, only what is exported can be accessed in other modules by importing. Additionally, any declarations made in a module are not automatically added to the global scope. By using ES6 modules, you can keep different parts of your code cleanly separated, which makes writing and maintaining your code much easier and less error-prone. Keep in mind that you can *definitely* export constructors, classes and factory functions from your modules.
+There are also the same benefits as when using factory functions or the module pattern (the module pattern and ES6 modules are not the same things; this naming convention is frustrating). With the introduction of ES6 Modules, the module pattern (IIFEs) is not needed anymore, though you might still encounter them in the wild. When using ES6 modules, only what is exported can be accessed in other modules by importing. Additionally, any declarations made in a module are not automatically added to the global scope. By using ES6 modules, you can keep different parts of your code cleanly separated, which makes writing and maintaining your code much easier and less error-prone. Keep in mind that you can _definitely_ export constructors, classes and factory functions from your modules.
 
 To pull it all together, let's write a module and then include it in our code. We are going to continue from where the webpack tutorial left off. Before beginning, your file directory should look something like this:
 
@@ -110,8 +110,8 @@ In addition, you should be able to bundle and run webpack by typing `npx webpack
 
 Add a new file to the `src` directory called `myName.js` with the following contents:
 
-``` javascript
-const myName = (name) => 'Hi! My name is ' + name;
+```javascript
+const myName = (name) => "Hi! My name is " + name;
 
 export default myName;
 ```
@@ -120,14 +120,13 @@ Then, in `src/index.js`, import and use your new function:
 
 ```javascript
 // import your function
-import myName from './myName';
+import myName from "./myName";
 
 function component() {
-  const element = document.createElement('div');
+  const element = document.createElement("div"); // use your function!
 
-  // use your function!
-  element.textContent = myName('Cody');
-  return element;
+  element.textContent = myName("Cody");
+  return element;
 }
 
 document.body.appendChild(component());
@@ -141,20 +140,17 @@ Here is an example with named exports, which you will most often use when you ha
 
 ```javascript
 // a file called myModule.js
-const functionOne = () => 'ONE';
-const functionTwo = () => 'TWO';
+const functionOne = () => "ONE";
+const functionTwo = () => "TWO";
 
-export {
-  functionOne,
-  functionTwo
-};
+export { functionOne, functionTwo };
 ```
 
 And to import them:
 
 ```javascript
 // index.js in /src folder
-import {functionOne, functionTwo} from './myModule';
+import { functionOne, functionTwo } from "./myModule";
 ```
 
 Using this pattern gives you the freedom to only import the functions you need in the various files of your program. So it's perfectly fine to only import `functionOne` if that's the only one you need.
